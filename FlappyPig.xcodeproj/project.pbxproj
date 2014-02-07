@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1823F4A818A4DED1004C6504 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4A718A4DED1004C6504 /* Foundation.framework */; };
+		1823F4AA18A4DED1004C6504 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4A918A4DED1004C6504 /* CoreGraphics.framework */; };
+		1823F4AC18A4DED1004C6504 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4AB18A4DED1004C6504 /* UIKit.framework */; };
+		1823F4AE18A4DED1004C6504 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4AD18A4DED1004C6504 /* SpriteKit.framework */; };
+		1823F4B418A4DED1004C6504 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4B218A4DED1004C6504 /* InfoPlist.strings */; };
+		1823F4B618A4DED1004C6504 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4B518A4DED1004C6504 /* main.m */; };
+		1823F4BA18A4DED1004C6504 /* FLPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4B918A4DED1004C6504 /* FLPAppDelegate.m */; };
+		1823F4BD18A4DED1004C6504 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4BB18A4DED1004C6504 /* Main_iPhone.storyboard */; };
+		1823F4C018A4DED1004C6504 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4BE18A4DED1004C6504 /* Main_iPad.storyboard */; };
+		1823F4C318A4DED1004C6504 /* FLPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4C218A4DED1004C6504 /* FLPViewController.m */; };
+		1823F4C618A4DED1004C6504 /* FLPMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4C518A4DED1004C6504 /* FLPMyScene.m */; };
+		1823F4CA18A4DED1004C6504 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4C918A4DED1004C6504 /* Images.xcassets */; };
+		1823F4D118A4DED1004C6504 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4D018A4DED1004C6504 /* XCTest.framework */; };
+		1823F4D218A4DED1004C6504 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4A718A4DED1004C6504 /* Foundation.framework */; };
+		1823F4D318A4DED1004C6504 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4AB18A4DED1004C6504 /* UIKit.framework */; };
+		1823F4DB18A4DED1004C6504 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4D918A4DED1004C6504 /* InfoPlist.strings */; };
+		1823F4DD18A4DED1004C6504 /* FlappyPigTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4DC18A4DED1004C6504 /* FlappyPigTests.m */; };
+		1823F4E718A52D40004C6504 /* tile_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4E618A52D40004C6504 /* tile_00.png */; };
+		1823F4F318A5314B004C6504 /* SKAction+SKTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4EA18A5314B004C6504 /* SKAction+SKTExtras.m */; };
+		1823F4F418A5314B004C6504 /* SKEmitterNode+SKTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4EC18A5314B004C6504 /* SKEmitterNode+SKTExtras.m */; };
+		1823F4F518A5314B004C6504 /* SKNode+SKTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4EE18A5314B004C6504 /* SKNode+SKTExtras.m */; };
+		1823F4F618A5314B004C6504 /* SKTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4F018A5314B004C6504 /* SKTAudio.m */; };
+		1823F4F718A5314B004C6504 /* SKTUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1823F4F218A5314B004C6504 /* SKTUtils.mm */; };
+		1823F4FE18A53DEC004C6504 /* pig-ginger-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4F818A53DEC004C6504 /* pig-ginger-1.png */; };
+		1823F4FF18A53DEC004C6504 /* pig-ginger-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4F918A53DEC004C6504 /* pig-ginger-1@2x.png */; };
+		1823F50018A53DEC004C6504 /* pig-ginger-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4FA18A53DEC004C6504 /* pig-ginger-2.png */; };
+		1823F50118A53DEC004C6504 /* pig-ginger-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4FB18A53DEC004C6504 /* pig-ginger-2@2x.png */; };
+		1823F50218A53DEC004C6504 /* pig-ginger-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4FC18A53DEC004C6504 /* pig-ginger-3.png */; };
+		1823F50318A53DEC004C6504 /* pig-ginger-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1823F4FD18A53DEC004C6504 /* pig-ginger-3@2x.png */; };
+		1823F50618A54610004C6504 /* FLPMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1823F50518A54610004C6504 /* FLPMainMenu.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1823F4D418A4DED1004C6504 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1823F49C18A4DED1004C6504 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1823F4A318A4DED1004C6504;
+			remoteInfo = FlappyPig;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1823F4A418A4DED1004C6504 /* FlappyPig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyPig.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1823F4A718A4DED1004C6504 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1823F4A918A4DED1004C6504 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1823F4AB18A4DED1004C6504 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1823F4AD18A4DED1004C6504 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		1823F4B118A4DED1004C6504 /* FlappyPig-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlappyPig-Info.plist"; sourceTree = "<group>"; };
+		1823F4B318A4DED1004C6504 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1823F4B518A4DED1004C6504 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1823F4B718A4DED1004C6504 /* FlappyPig-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlappyPig-Prefix.pch"; sourceTree = "<group>"; };
+		1823F4B818A4DED1004C6504 /* FLPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLPAppDelegate.h; sourceTree = "<group>"; };
+		1823F4B918A4DED1004C6504 /* FLPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLPAppDelegate.m; sourceTree = "<group>"; };
+		1823F4BC18A4DED1004C6504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		1823F4BF18A4DED1004C6504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		1823F4C118A4DED1004C6504 /* FLPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLPViewController.h; sourceTree = "<group>"; };
+		1823F4C218A4DED1004C6504 /* FLPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLPViewController.m; sourceTree = "<group>"; };
+		1823F4C418A4DED1004C6504 /* FLPMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLPMyScene.h; sourceTree = "<group>"; };
+		1823F4C518A4DED1004C6504 /* FLPMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLPMyScene.m; sourceTree = "<group>"; };
+		1823F4C918A4DED1004C6504 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1823F4CF18A4DED1004C6504 /* FlappyPigTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappyPigTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1823F4D018A4DED1004C6504 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1823F4D818A4DED1004C6504 /* FlappyPigTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlappyPigTests-Info.plist"; sourceTree = "<group>"; };
+		1823F4DA18A4DED1004C6504 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1823F4DC18A4DED1004C6504 /* FlappyPigTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlappyPigTests.m; sourceTree = "<group>"; };
+		1823F4E618A52D40004C6504 /* tile_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_00.png; sourceTree = "<group>"; };
+		1823F4E918A5314B004C6504 /* SKAction+SKTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKAction+SKTExtras.h"; sourceTree = "<group>"; };
+		1823F4EA18A5314B004C6504 /* SKAction+SKTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKAction+SKTExtras.m"; sourceTree = "<group>"; };
+		1823F4EB18A5314B004C6504 /* SKEmitterNode+SKTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKEmitterNode+SKTExtras.h"; sourceTree = "<group>"; };
+		1823F4EC18A5314B004C6504 /* SKEmitterNode+SKTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKEmitterNode+SKTExtras.m"; sourceTree = "<group>"; };
+		1823F4ED18A5314B004C6504 /* SKNode+SKTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+SKTExtras.h"; sourceTree = "<group>"; };
+		1823F4EE18A5314B004C6504 /* SKNode+SKTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+SKTExtras.m"; sourceTree = "<group>"; };
+		1823F4EF18A5314B004C6504 /* SKTAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTAudio.h; sourceTree = "<group>"; };
+		1823F4F018A5314B004C6504 /* SKTAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTAudio.m; sourceTree = "<group>"; };
+		1823F4F118A5314B004C6504 /* SKTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTUtils.h; sourceTree = "<group>"; };
+		1823F4F218A5314B004C6504 /* SKTUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SKTUtils.mm; sourceTree = "<group>"; };
+		1823F4F818A53DEC004C6504 /* pig-ginger-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ginger-1.png"; sourceTree = "<group>"; };
+		1823F4F918A53DEC004C6504 /* pig-ginger-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ginger-1@2x.png"; sourceTree = "<group>"; };
+		1823F4FA18A53DEC004C6504 /* pig-ginger-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ginger-2.png"; sourceTree = "<group>"; };
+		1823F4FB18A53DEC004C6504 /* pig-ginger-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ginger-2@2x.png"; sourceTree = "<group>"; };
+		1823F4FC18A53DEC004C6504 /* pig-ginger-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ginger-3.png"; sourceTree = "<group>"; };
+		1823F4FD18A53DEC004C6504 /* pig-ginger-3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pig-ginger-3@2x.png"; sourceTree = "<group>"; };
+		1823F50418A54610004C6504 /* FLPMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPMainMenu.h; sourceTree = "<group>"; };
+		1823F50518A54610004C6504 /* FLPMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPMainMenu.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1823F4A118A4DED1004C6504 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1823F4AA18A4DED1004C6504 /* CoreGraphics.framework in Frameworks */,
+				1823F4AC18A4DED1004C6504 /* UIKit.framework in Frameworks */,
+				1823F4AE18A4DED1004C6504 /* SpriteKit.framework in Frameworks */,
+				1823F4A818A4DED1004C6504 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1823F4CC18A4DED1004C6504 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1823F4D118A4DED1004C6504 /* XCTest.framework in Frameworks */,
+				1823F4D318A4DED1004C6504 /* UIKit.framework in Frameworks */,
+				1823F4D218A4DED1004C6504 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1823F49B18A4DED1004C6504 = {
+			isa = PBXGroup;
+			children = (
+				1823F4AF18A4DED1004C6504 /* FlappyPig */,
+				1823F4D618A4DED1004C6504 /* FlappyPigTests */,
+				1823F4A618A4DED1004C6504 /* Frameworks */,
+				1823F4A518A4DED1004C6504 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1823F4A518A4DED1004C6504 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1823F4A418A4DED1004C6504 /* FlappyPig.app */,
+				1823F4CF18A4DED1004C6504 /* FlappyPigTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1823F4A618A4DED1004C6504 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1823F4A718A4DED1004C6504 /* Foundation.framework */,
+				1823F4A918A4DED1004C6504 /* CoreGraphics.framework */,
+				1823F4AB18A4DED1004C6504 /* UIKit.framework */,
+				1823F4AD18A4DED1004C6504 /* SpriteKit.framework */,
+				1823F4D018A4DED1004C6504 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1823F4AF18A4DED1004C6504 /* FlappyPig */ = {
+			isa = PBXGroup;
+			children = (
+				1823F4E818A5314B004C6504 /* SKTUtils */,
+				1823F4B818A4DED1004C6504 /* FLPAppDelegate.h */,
+				1823F4B918A4DED1004C6504 /* FLPAppDelegate.m */,
+				1823F4BB18A4DED1004C6504 /* Main_iPhone.storyboard */,
+				1823F4BE18A4DED1004C6504 /* Main_iPad.storyboard */,
+				1823F4C118A4DED1004C6504 /* FLPViewController.h */,
+				1823F4C218A4DED1004C6504 /* FLPViewController.m */,
+				1823F50418A54610004C6504 /* FLPMainMenu.h */,
+				1823F50518A54610004C6504 /* FLPMainMenu.m */,
+				1823F4C418A4DED1004C6504 /* FLPMyScene.h */,
+				1823F4C518A4DED1004C6504 /* FLPMyScene.m */,
+				1823F4C918A4DED1004C6504 /* Images.xcassets */,
+				1823F4B018A4DED1004C6504 /* Supporting Files */,
+			);
+			path = FlappyPig;
+			sourceTree = "<group>";
+		};
+		1823F4B018A4DED1004C6504 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1823F4F818A53DEC004C6504 /* pig-ginger-1.png */,
+				1823F4F918A53DEC004C6504 /* pig-ginger-1@2x.png */,
+				1823F4FA18A53DEC004C6504 /* pig-ginger-2.png */,
+				1823F4FB18A53DEC004C6504 /* pig-ginger-2@2x.png */,
+				1823F4FC18A53DEC004C6504 /* pig-ginger-3.png */,
+				1823F4FD18A53DEC004C6504 /* pig-ginger-3@2x.png */,
+				1823F4E618A52D40004C6504 /* tile_00.png */,
+				1823F4B118A4DED1004C6504 /* FlappyPig-Info.plist */,
+				1823F4B218A4DED1004C6504 /* InfoPlist.strings */,
+				1823F4B518A4DED1004C6504 /* main.m */,
+				1823F4B718A4DED1004C6504 /* FlappyPig-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1823F4D618A4DED1004C6504 /* FlappyPigTests */ = {
+			isa = PBXGroup;
+			children = (
+				1823F4DC18A4DED1004C6504 /* FlappyPigTests.m */,
+				1823F4D718A4DED1004C6504 /* Supporting Files */,
+			);
+			path = FlappyPigTests;
+			sourceTree = "<group>";
+		};
+		1823F4D718A4DED1004C6504 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1823F4D818A4DED1004C6504 /* FlappyPigTests-Info.plist */,
+				1823F4D918A4DED1004C6504 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1823F4E818A5314B004C6504 /* SKTUtils */ = {
+			isa = PBXGroup;
+			children = (
+				1823F4E918A5314B004C6504 /* SKAction+SKTExtras.h */,
+				1823F4EA18A5314B004C6504 /* SKAction+SKTExtras.m */,
+				1823F4EB18A5314B004C6504 /* SKEmitterNode+SKTExtras.h */,
+				1823F4EC18A5314B004C6504 /* SKEmitterNode+SKTExtras.m */,
+				1823F4ED18A5314B004C6504 /* SKNode+SKTExtras.h */,
+				1823F4EE18A5314B004C6504 /* SKNode+SKTExtras.m */,
+				1823F4EF18A5314B004C6504 /* SKTAudio.h */,
+				1823F4F018A5314B004C6504 /* SKTAudio.m */,
+				1823F4F118A5314B004C6504 /* SKTUtils.h */,
+				1823F4F218A5314B004C6504 /* SKTUtils.mm */,
+			);
+			path = SKTUtils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1823F4A318A4DED1004C6504 /* FlappyPig */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1823F4E018A4DED1004C6504 /* Build configuration list for PBXNativeTarget "FlappyPig" */;
+			buildPhases = (
+				1823F4A018A4DED1004C6504 /* Sources */,
+				1823F4A118A4DED1004C6504 /* Frameworks */,
+				1823F4A218A4DED1004C6504 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlappyPig;
+			productName = FlappyPig;
+			productReference = 1823F4A418A4DED1004C6504 /* FlappyPig.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1823F4CE18A4DED1004C6504 /* FlappyPigTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1823F4E318A4DED1004C6504 /* Build configuration list for PBXNativeTarget "FlappyPigTests" */;
+			buildPhases = (
+				1823F4CB18A4DED1004C6504 /* Sources */,
+				1823F4CC18A4DED1004C6504 /* Frameworks */,
+				1823F4CD18A4DED1004C6504 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1823F4D518A4DED1004C6504 /* PBXTargetDependency */,
+			);
+			name = FlappyPigTests;
+			productName = FlappyPigTests;
+			productReference = 1823F4CF18A4DED1004C6504 /* FlappyPigTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1823F49C18A4DED1004C6504 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FLP;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Robert Baker";
+				TargetAttributes = {
+					1823F4CE18A4DED1004C6504 = {
+						TestTargetID = 1823F4A318A4DED1004C6504;
+					};
+				};
+			};
+			buildConfigurationList = 1823F49F18A4DED1004C6504 /* Build configuration list for PBXProject "FlappyPig" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1823F49B18A4DED1004C6504;
+			productRefGroup = 1823F4A518A4DED1004C6504 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1823F4A318A4DED1004C6504 /* FlappyPig */,
+				1823F4CE18A4DED1004C6504 /* FlappyPigTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1823F4A218A4DED1004C6504 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1823F4E718A52D40004C6504 /* tile_00.png in Resources */,
+				1823F4FE18A53DEC004C6504 /* pig-ginger-1.png in Resources */,
+				1823F4CA18A4DED1004C6504 /* Images.xcassets in Resources */,
+				1823F50118A53DEC004C6504 /* pig-ginger-2@2x.png in Resources */,
+				1823F50318A53DEC004C6504 /* pig-ginger-3@2x.png in Resources */,
+				1823F50218A53DEC004C6504 /* pig-ginger-3.png in Resources */,
+				1823F4C018A4DED1004C6504 /* Main_iPad.storyboard in Resources */,
+				1823F4BD18A4DED1004C6504 /* Main_iPhone.storyboard in Resources */,
+				1823F50018A53DEC004C6504 /* pig-ginger-2.png in Resources */,
+				1823F4B418A4DED1004C6504 /* InfoPlist.strings in Resources */,
+				1823F4FF18A53DEC004C6504 /* pig-ginger-1@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1823F4CD18A4DED1004C6504 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1823F4DB18A4DED1004C6504 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1823F4A018A4DED1004C6504 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1823F4B618A4DED1004C6504 /* main.m in Sources */,
+				1823F4F618A5314B004C6504 /* SKTAudio.m in Sources */,
+				1823F4C618A4DED1004C6504 /* FLPMyScene.m in Sources */,
+				1823F4F418A5314B004C6504 /* SKEmitterNode+SKTExtras.m in Sources */,
+				1823F4F718A5314B004C6504 /* SKTUtils.mm in Sources */,
+				1823F4F318A5314B004C6504 /* SKAction+SKTExtras.m in Sources */,
+				1823F50618A54610004C6504 /* FLPMainMenu.m in Sources */,
+				1823F4C318A4DED1004C6504 /* FLPViewController.m in Sources */,
+				1823F4F518A5314B004C6504 /* SKNode+SKTExtras.m in Sources */,
+				1823F4BA18A4DED1004C6504 /* FLPAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1823F4CB18A4DED1004C6504 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1823F4DD18A4DED1004C6504 /* FlappyPigTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1823F4D518A4DED1004C6504 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1823F4A318A4DED1004C6504 /* FlappyPig */;
+			targetProxy = 1823F4D418A4DED1004C6504 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1823F4B218A4DED1004C6504 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1823F4B318A4DED1004C6504 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1823F4BB18A4DED1004C6504 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1823F4BC18A4DED1004C6504 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		1823F4BE18A4DED1004C6504 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1823F4BF18A4DED1004C6504 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		1823F4D918A4DED1004C6504 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1823F4DA18A4DED1004C6504 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1823F4DE18A4DED1004C6504 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1823F4DF18A4DED1004C6504 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1823F4E118A4DED1004C6504 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlappyPig/FlappyPig-Prefix.pch";
+				INFOPLIST_FILE = "FlappyPig/FlappyPig-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1823F4E218A4DED1004C6504 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlappyPig/FlappyPig-Prefix.pch";
+				INFOPLIST_FILE = "FlappyPig/FlappyPig-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1823F4E418A4DED1004C6504 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FlappyPig.app/FlappyPig";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlappyPig/FlappyPig-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FlappyPigTests/FlappyPigTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1823F4E518A4DED1004C6504 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FlappyPig.app/FlappyPig";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlappyPig/FlappyPig-Prefix.pch";
+				INFOPLIST_FILE = "FlappyPigTests/FlappyPigTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1823F49F18A4DED1004C6504 /* Build configuration list for PBXProject "FlappyPig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1823F4DE18A4DED1004C6504 /* Debug */,
+				1823F4DF18A4DED1004C6504 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1823F4E018A4DED1004C6504 /* Build configuration list for PBXNativeTarget "FlappyPig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1823F4E118A4DED1004C6504 /* Debug */,
+				1823F4E218A4DED1004C6504 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1823F4E318A4DED1004C6504 /* Build configuration list for PBXNativeTarget "FlappyPigTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1823F4E418A4DED1004C6504 /* Debug */,
+				1823F4E518A4DED1004C6504 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1823F49C18A4DED1004C6504 /* Project object */;
+}
