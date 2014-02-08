@@ -14,7 +14,12 @@
     OverlayAnimationStyle _animationStyle;
 }
 
-- (instancetype)initWithAnimationStyle:(OverlayAnimationStyle)animationStyle andSize:(CGSize)size
++ (instancetype)gameOverWithAnimationStyle:(OverlayAnimationStyle)animationStyle size:(CGSize)size buttonBlock:(void (^)(void))buttonBlock
+{
+    return [[self alloc] initWithAnimationStyle:animationStyle size:size buttonBlock:buttonBlock];
+}
+
+- (instancetype)initWithAnimationStyle:(OverlayAnimationStyle)animationStyle size:(CGSize)size buttonBlock:(void (^)(void))buttonBlock
 {
     if(self = [super initWithSize:size])
     {
@@ -23,13 +28,19 @@
         gameOverLabel.position = CGPointMake(0, self.overlay.size.height * 0.35);
         [self.overlayContainer addChild:gameOverLabel];
         
-        self.restartButton = [FLPButton
+        SKLabelNode *restartLabel = [SKLabelNode labelNodeWithFontNamed:@"MineCrafter-2.0"];
+        restartLabel.text = @"RESTART";
+        
+        self.restartButton = [FLPButton buttonWithLabel:restartLabel
+                                               andBlock:buttonBlock];
+        self.restartButton.position = CGPointMake(0, -self.overlay.size.height * 0.4);
+        [self.overlayContainer addChild:self.restartButton];
     }
     
     return self;
 }
 
-- (void)animateToEndPoint:(CGFloat)endPoint
+- (void)animateToEndPoint:(CGPoint)endPoint
 {
     switch (_animationStyle) {
         case OverlayAnimationStyleSlideFromTop:

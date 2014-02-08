@@ -53,4 +53,9 @@
     
 }
 
+-(void)dealloc
+{
+    NSLog(@"Killed %@", self);
+}
+
 @end

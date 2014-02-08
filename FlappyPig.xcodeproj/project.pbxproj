@@ -13,6 +13,7 @@
 		18005FC118A6591C00556E51 /* FLPModalOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 18005FC018A6591C00556E51 /* FLPModalOverlay.m */; };
 		18005FC418A6593300556E51 /* FLPGameOverOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 18005FC318A6593300556E51 /* FLPGameOverOverlay.m */; };
 		18005FC718A6691F00556E51 /* FLPShadowLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18005FC618A6691F00556E51 /* FLPShadowLabelNode.m */; };
+		18005FCA18A67E5400556E51 /* FLPPig.m in Sources */ = {isa = PBXBuildFile; fileRef = 18005FC918A67E5400556E51 /* FLPPig.m */; };
 		1823F4A818A4DED1004C6504 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4A718A4DED1004C6504 /* Foundation.framework */; };
 		1823F4AA18A4DED1004C6504 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4A918A4DED1004C6504 /* CoreGraphics.framework */; };
 		1823F4AC18A4DED1004C6504 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1823F4AB18A4DED1004C6504 /* UIKit.framework */; };
@@ -66,6 +67,9 @@
 		18005FC318A6593300556E51 /* FLPGameOverOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPGameOverOverlay.m; sourceTree = "<group>"; };
 		18005FC518A6691F00556E51 /* FLPShadowLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPShadowLabelNode.h; sourceTree = "<group>"; };
 		18005FC618A6691F00556E51 /* FLPShadowLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPShadowLabelNode.m; sourceTree = "<group>"; };
+		18005FC818A67E5400556E51 /* FLPPig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPPig.h; sourceTree = "<group>"; };
+		18005FC918A67E5400556E51 /* FLPPig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPPig.m; sourceTree = "<group>"; };
+		18005FCC18A681EC00556E51 /* FLPIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPIncludes.h; sourceTree = "<group>"; };
 		1823F4A418A4DED1004C6504 /* FlappyPig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyPig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1823F4A718A4DED1004C6504 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1823F4A918A4DED1004C6504 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +150,8 @@
 				18005FC018A6591C00556E51 /* FLPModalOverlay.m */,
 				18005FC218A6593300556E51 /* FLPGameOverOverlay.h */,
 				18005FC318A6593300556E51 /* FLPGameOverOverlay.m */,
+				18005FC818A67E5400556E51 /* FLPPig.h */,
+				18005FC918A67E5400556E51 /* FLPPig.m */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 		1823F4AF18A4DED1004C6504 /* FlappyPig */ = {
 			isa = PBXGroup;
 			children = (
+				18005FCC18A681EC00556E51 /* FLPIncludes.h */,
 				18005FA218A581F500556E51 /* Assets */,
 				18005FA118A581E100556E51 /* Storyboards */,
 				18005FA018A581D400556E51 /* Controllers */,
@@ -423,6 +430,7 @@
 				18005FC718A6691F00556E51 /* FLPShadowLabelNode.m in Sources */,
 				1823F4F718A5314B004C6504 /* SKTUtils.mm in Sources */,
 				1823F4F318A5314B004C6504 /* SKAction+SKTExtras.m in Sources */,
+				18005FCA18A67E5400556E51 /* FLPPig.m in Sources */,
 				1823F50618A54610004C6504 /* FLPMainMenu.m in Sources */,
 				1823F4C318A4DED1004C6504 /* FLPViewController.m in Sources */,
 				1823F4F518A5314B004C6504 /* SKNode+SKTExtras.m in Sources */,

@@ -7,14 +7,10 @@
 //
 
 #import "FLPMyScene.h"
+#import "FLPMainMenu.h"
+#import "FLPPig.h"
 #import "FLPGameOverOverlay.h"
-
-typedef NS_OPTIONS(uint32_t, CNhysicsCategory)
-{
-    CNPhysicsCategoryPig        = 1 << 0, // 0001 = 1
-    CNPhysicsCategoryPipe       = 1 << 1, // 0010 = 2
-    CNPhysicsCategoryFloor      = 1 << 2, // 0100 = 4
-};
+#import "FLPIncludes.h"
 
 typedef enum {
     GameStateDemo,
@@ -54,7 +50,7 @@ typedef enum {
      [SKAction repeatActionForever:
       [SKAction sequence:@[
                            [SKAction performSelector:@selector(spawnPipe) onTarget:self],
-                           [SKAction waitForDuration:1.5]
+                           [SKAction waitForDuration:1]
                            ]
        ]
       ]
@@ -63,30 +59,21 @@ typedef enum {
     _pig.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.5);
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [_pig.physicsBody applyImpulse:CGVectorMake(0, 200)];
-}
-
 - (void)setupPhysicsWorld
 {
     // create boundary
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     self.physicsBody.categoryBitMask = CNPhysicsCategoryFloor;
+    
+    self.physicsWorld.gravity = CGVectorMake(0.0f, -9.f);
     self.physicsWorld.contactDelegate = self;
 }
 
 - (void)setupPig
 {
-    // create square
-    _pig = [SKSpriteNode spriteNodeWithImageNamed:@"pig-ginger-1"];
-    [_pig setScale:0.6];
+    _pig = [FLPPig pig];
     _pig.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.5);
     _pig.zPosition = 200;
-    _pig.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_pig.size];
-    _pig.physicsBody.categoryBitMask = CNPhysicsCategoryPig;
-    _pig.physicsBody.collisionBitMask = CNPhysicsCategoryPipe | CNPhysicsCategoryFloor;
-    _pig.physicsBody.contactTestBitMask = CNPhysicsCategoryPig | CNPhysicsCategoryPipe;
     
     [self addChild:_pig];
 }
@@ -98,14 +85,16 @@ typedef enum {
     }
 
     float pipeWidth = 50;
-    float gapDistance = 150;
+    float gapDistance = 200;
     
     // generate the height of the bottom pipe. A random number based on a factor of the height of the screen, +50 so we don't get tiny pipes
     NSInteger randomBottomPipeHeight = (arc4random() % (int)self.size.height * 0.7) + 50;
     
+    randomBottomPipeHeight = MAX(randomBottomPipeHeight, 0);
+    
     // create the sprite node, physics object, position the pipe off screen
     SKSpriteNode *bottomPipe = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(pipeWidth, randomBottomPipeHeight)];
-    bottomPipe.position = CGPointMake(self.size.width + bottomPipe.size.width * 0.5, bottomPipe.size.height * 0.5);
+    bottomPipe.position = CGPointMake(self.size.width + pipeWidth * 0.5, bottomPipe.size.height * 0.5);
     bottomPipe.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:bottomPipe.size];
     bottomPipe.physicsBody.dynamic = NO;
     bottomPipe.physicsBody.categoryBitMask = CNPhysicsCategoryPipe;
@@ -114,20 +103,44 @@ typedef enum {
     
     // generate the height of the top pipe, based on the bottom pipe size, subtracted from the overall height of the screen, minus the gap distance
     float topPipeHeight = self.size.height - bottomPipe.size.height - gapDistance;
+    topPipeHeight = MAX(topPipeHeight, 0);
     
     // create the top sprite node, position it above the lower part of the pipe, including the gap
     SKSpriteNode *topPipe = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(pipeWidth, topPipeHeight)];
-    topPipe.position = CGPointMake(self.size.width + topPipe.size.width * 0.5,  (bottomPipe.size.height + topPipeHeight * 0.5) + gapDistance);
+    topPipe.position = CGPointMake(self.size.width + pipeWidth * 0.5,  (bottomPipe.size.height + topPipeHeight * 0.5) + gapDistance);
     topPipe.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:topPipe.size];
     topPipe.physicsBody.dynamic = NO;
     topPipe.physicsBody.categoryBitMask = CNPhysicsCategoryPipe;
     topPipe.name = @"pipe";
     [self addChild:topPipe];
     
+    // generate sensor to fill space
+    SKSpriteNode *sensorNode = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(pipeWidth, gapDistance)];
+    sensorNode.position = CGPointMake(self.size.width + pipeWidth * 0.5, bottomPipe.size.height + gapDistance * 0.5);
+    sensorNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:sensorNode.size];
+    sensorNode.physicsBody.dynamic = NO;
+    sensorNode.physicsBody.categoryBitMask = CNPhysicsCategorySensor;
+    sensorNode.name = @"pipe";
+    [self addChild:sensorNode];
+    
     // move from right to left, then die
     [topPipe runAction:
      [SKAction sequence:@[
                           [SKAction moveToX:0 - self.size.width * 0.5 duration:5.0],
+                          [SKAction runBlock:^{
+                             [_pipeArray removeObject:topPipe];
+                         }],
+                          [SKAction removeFromParent]
+                          ]
+      ]
+     ];
+    
+    [sensorNode runAction:
+     [SKAction sequence:@[
+                          [SKAction moveToX:0 - self.size.width * 0.5 duration:5.0],
+                          [SKAction runBlock:^{
+                             [_pipeArray removeObject:sensorNode];
+                         }],
                           [SKAction removeFromParent]
                           ]
       ]
@@ -136,6 +149,9 @@ typedef enum {
     [bottomPipe runAction:
      [SKAction sequence:@[
                           [SKAction moveToX:0 - self.size.width * 0.5 duration:5.0],
+                          [SKAction runBlock:^{
+                             [_pipeArray removeObject:bottomPipe];
+                         }],
                           [SKAction removeFromParent]
                           ]
       ]
@@ -144,6 +160,11 @@ typedef enum {
     // keep a reference of the pipe in the pipe array so we can remove the physics bodies later
     [_pipeArray addObject:bottomPipe];
     [_pipeArray addObject:topPipe];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_pig.physicsBody applyImpulse:CGVectorMake(TAP_FORCE_X, TAP_FORCE_Y)];
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
@@ -173,11 +194,25 @@ typedef enum {
         [self presentGameOverScreen];
         
     }
+    
+    if (collision == (CNPhysicsCategoryPig|CNPhysicsCategorySensor)) {
+        NSLog(@"SENSOR!");
+    }
 }
 
 - (void)presentGameOverScreen
 {
-    FLPGameOverOverlay *gameOverOverlay = [[FLPGameOverOverlay alloc] initWithAnimationStyle:OverlayAnimationStyleSlideFromTop andSize:CGSizeMake(self.size.width * 0.3, self.size.height * 0.5)];
+    FLPGameOverOverlay *gameOverOverlay = [FLPGameOverOverlay gameOverWithAnimationStyle:OverlayAnimationStyleSlideFromTop
+                                                                                    size:CGSizeMake(self.size.width * 0.3, self.size.height * 0.5)
+                                                                             buttonBlock:^{
+                                                                                 
+                                                                                 SKScene *mainMenu = [[FLPMainMenu alloc] initWithSize:self.size];
+                                                                                 SKTransition *transition = [SKTransition fadeWithDuration:0.3];
+                                                                                 
+                                                                                 [self.view presentScene:mainMenu
+                                                                                              transition:transition];
+                                                                             }];
+    
     gameOverOverlay.position = CGPointMake(self.size.width * 0.5, self.size.height * 1.5);
     
     [self addChild:gameOverOverlay];

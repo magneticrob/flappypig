@@ -11,8 +11,8 @@
 
 @interface FLPGameOverOverlay : FLPModalOverlay
 
-- (instancetype)initWithAnimationStyle:(OverlayAnimationStyle)animationStyle  andSize:(CGSize)size;
-- (void)animateToEndPoint:(CGFloat)endPoint;
++ (instancetype)gameOverWithAnimationStyle:(OverlayAnimationStyle)animationStyle size:(CGSize)size buttonBlock:(void (^)(void))buttonBlock;
+- (void)animateToEndPoint:(CGPoint)endPoint;
 
 @property (nonatomic, strong) FLPButton *restartButton;
 
