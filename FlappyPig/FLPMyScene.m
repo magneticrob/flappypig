@@ -20,10 +20,12 @@ typedef enum {
 
 @implementation FLPMyScene {
     SKSpriteNode *_pig;
-    
     NSMutableArray *_pipeArray;
     
+    FLPShadowLabelNode *_scoreLabel;
     GameState _gameState;
+    
+    int _score;
 }
 
 -(id)initWithSize:(CGSize)size {    
@@ -36,6 +38,8 @@ typedef enum {
         
         [self setupPhysicsWorld];
         [self setupPig];
+        [self setupBackground];
+        [self setupLabels];
         [self startGame];
         
     }
@@ -59,6 +63,11 @@ typedef enum {
     _pig.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.5);
 }
 
+- (void)setupBackground
+{
+    
+}
+
 - (void)setupPhysicsWorld
 {
     // create boundary
@@ -78,6 +87,19 @@ typedef enum {
     [self addChild:_pig];
 }
 
+- (void)setupLabels
+{
+    _scoreLabel = [FLPShadowLabelNode shadowLabelWithSKLabel:[SKLabelNode labelNodeWithFontNamed:@"Minecraft"]];
+    _scoreLabel.position = CGPointMake(self.size.width * 0.9, self.size.height * 0.05);
+    [self updatePointsLabel];
+    [self addChild:_scoreLabel];
+}
+
+- (void)updatePointsLabel
+{
+    _scoreLabel.text = [NSString stringWithFormat:@"%06d", _score];
+}
+
 - (void)spawnPipe
 {
     if (!_pipeArray) {
@@ -86,15 +108,16 @@ typedef enum {
 
     float pipeWidth = 50;
     float gapDistance = 200;
+    float floorHeight = 100;
     
     // generate the height of the bottom pipe. A random number based on a factor of the height of the screen, +50 so we don't get tiny pipes
-    NSInteger randomBottomPipeHeight = (arc4random() % (int)self.size.height * 0.7) + 50;
+    NSInteger randomBottomPipeHeight = (arc4random() % (int)self.size.height * 0.7) + 50 - floorHeight;
     
     randomBottomPipeHeight = MAX(randomBottomPipeHeight, 0);
     
     // create the sprite node, physics object, position the pipe off screen
     SKSpriteNode *bottomPipe = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(pipeWidth, randomBottomPipeHeight)];
-    bottomPipe.position = CGPointMake(self.size.width + pipeWidth * 0.5, bottomPipe.size.height * 0.5);
+    bottomPipe.position = CGPointMake(self.size.width + pipeWidth * 0.5, bottomPipe.size.height * 0.5 + floorHeight);
     bottomPipe.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:bottomPipe.size];
     bottomPipe.physicsBody.dynamic = NO;
     bottomPipe.physicsBody.categoryBitMask = CNPhysicsCategoryPipe;
@@ -102,12 +125,12 @@ typedef enum {
     [self addChild:bottomPipe];
     
     // generate the height of the top pipe, based on the bottom pipe size, subtracted from the overall height of the screen, minus the gap distance
-    float topPipeHeight = self.size.height - bottomPipe.size.height - gapDistance;
+    float topPipeHeight = self.size.height - bottomPipe.size.height - gapDistance - floorHeight;
     topPipeHeight = MAX(topPipeHeight, 0);
     
     // create the top sprite node, position it above the lower part of the pipe, including the gap
     SKSpriteNode *topPipe = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(pipeWidth, topPipeHeight)];
-    topPipe.position = CGPointMake(self.size.width + pipeWidth * 0.5,  (bottomPipe.size.height + topPipeHeight * 0.5) + gapDistance);
+    topPipe.position = CGPointMake(self.size.width + pipeWidth * 0.5,  (bottomPipe.size.height + topPipeHeight * 0.5) + gapDistance + floorHeight);
     topPipe.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:topPipe.size];
     topPipe.physicsBody.dynamic = NO;
     topPipe.physicsBody.categoryBitMask = CNPhysicsCategoryPipe;
@@ -116,7 +139,7 @@ typedef enum {
     
     // generate sensor to fill space
     SKSpriteNode *sensorNode = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(pipeWidth, gapDistance)];
-    sensorNode.position = CGPointMake(self.size.width + pipeWidth * 0.5, bottomPipe.size.height + gapDistance * 0.5);
+    sensorNode.position = CGPointMake(self.size.width + pipeWidth * 0.5, self.size.height - (topPipe.size.height + gapDistance * 0.5));
     sensorNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:sensorNode.size];
     sensorNode.physicsBody.dynamic = NO;
     sensorNode.physicsBody.categoryBitMask = CNPhysicsCategorySensor;
@@ -193,10 +216,9 @@ typedef enum {
         
         [self presentGameOverScreen];
         
-    }
-    
-    if (collision == (CNPhysicsCategoryPig|CNPhysicsCategorySensor)) {
-        NSLog(@"SENSOR!");
+    } else if (collision == (CNPhysicsCategoryPig|CNPhysicsCategorySensor)) {
+        _score++;
+        [self updatePointsLabel];
     }
 }
 
@@ -211,7 +233,8 @@ typedef enum {
                                                                                  
                                                                                  [self.view presentScene:mainMenu
                                                                                               transition:transition];
-                                                                             }];
+                                                                             }
+                                                                                   score:_score];
     
     gameOverOverlay.position = CGPointMake(self.size.width * 0.5, self.size.height * 1.5);
     
@@ -221,7 +244,7 @@ typedef enum {
 
 -(void)update:(NSTimeInterval)currentTime
 {
-
+    
 }
 
 @end
