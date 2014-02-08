@@ -10,4 +10,6 @@
 
 @interface FLPMyScene : SKScene <SKPhysicsContactDelegate>
 
+-(id)initWithSize:(CGSize)size;
+
 @end

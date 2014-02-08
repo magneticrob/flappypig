@@ -152,22 +152,22 @@ typedef enum {
     if (collision == (CNPhysicsCategoryPig|CNPhysicsCategoryPipe)) {
         
         // remove all the pipe physics bodies so we can fall in front of them
-//        [self enumerateChildNodesWithName:@"pipe" usingBlock:^(SKNode *node, BOOL *stop) {
-//            node.physicsBody = nil;
-//            [node removeAllActions];
-//        }];
-//        
-//        // stop anymore pipes being genereated
-//        [self removeAllActions];
-//        
-//        // give the pig a boot
-//        [_pig.physicsBody applyImpulse:CGVectorMake(20, 20) atPoint:CGPointMake(0, 0)];
-//        
-//        // stop applying impulse to the pig
-//        self.userInteractionEnabled = NO;
-//
-//        // GAME OVER BRO
-//        _gameState = GameStateGameOver;
+        [self enumerateChildNodesWithName:@"pipe" usingBlock:^(SKNode *node, BOOL *stop) {
+            node.physicsBody = nil;
+            [node removeAllActions];
+        }];
+        
+        // stop anymore pipes being genereated
+        [self removeAllActions];
+        
+        // give the pig a boot
+        [_pig.physicsBody applyImpulse:CGVectorMake(150, 150) atPoint:CGPointMake(0, 0)];
+        
+        // stop applying impulse to the pig
+        self.userInteractionEnabled = NO;
+
+        // GAME OVER BRO
+        _gameState = GameStateGameOver;
         
     }
 }

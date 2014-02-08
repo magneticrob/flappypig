@@ -8,6 +8,7 @@
 
 #import "FLPViewController.h"
 #import "FLPMyScene.h"
+#import "FLPMainMenu.h"
 
 @implementation FLPViewController
 
@@ -29,7 +30,7 @@
         skView.showsNodeCount = YES;
         
         // Create and configure the scene.
-        SKScene * scene = [FLPMyScene sceneWithSize:skView.bounds.size];
+        SKScene * scene = [FLPMainMenu sceneWithSize:skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
         // Present the scene.
