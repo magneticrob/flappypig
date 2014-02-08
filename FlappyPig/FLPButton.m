@@ -21,20 +21,14 @@
         
         self.buttonRect = [self.buttonSprite frame];
         
-        self.buttonLabel = label;
+        self.buttonLabel = [[FLPShadowLabelNode alloc] initWithSKLabelNode:label];
         self.buttonLabel.position = CGPointMake(self.buttonLabel.position.x, -self.buttonRect.size.height * 0.3);
-        
-        SKLabelNode *shadowLabel = [SKLabelNode labelNodeWithFontNamed:self.buttonLabel.fontName];
-        shadowLabel.text = self.buttonLabel.text;
-        shadowLabel.position = CGPointMake(self.buttonLabel.position.x, self.buttonLabel.position.y - 5);
-        shadowLabel.fontColor = [UIColor darkGrayColor];
         
         self.userInteractionEnabled = YES;
 
         [self addChild:shadowButton];
         [self addChild:self.buttonSprite];
         
-        [self addChild:shadowLabel];
         [self addChild:self.buttonLabel];
     }
     

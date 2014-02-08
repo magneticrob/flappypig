@@ -7,6 +7,7 @@
 //
 
 #import "FLPMyScene.h"
+#import "FLPGameOverOverlay.h"
 
 typedef NS_OPTIONS(uint32_t, CNhysicsCategory)
 {
@@ -33,7 +34,7 @@ typedef enum {
     if (self = [super initWithSize:size]) {
         
         /* Setup your scene here */
-        self.backgroundColor = [SKColor darkGrayColor];
+        self.backgroundColor = [SKColor lightGrayColor];
         
         _gameState = GameStateDemo;
         
@@ -169,12 +170,24 @@ typedef enum {
         // GAME OVER BRO
         _gameState = GameStateGameOver;
         
+        [self presentGameOverScreen];
+        
     }
+}
+
+- (void)presentGameOverScreen
+{
+    FLPGameOverOverlay *gameOverOverlay = [[FLPGameOverOverlay alloc] initWithAnimationStyle:OverlayAnimationStyleSlideFromTop andSize:CGSizeMake(self.size.width * 0.3, self.size.height * 0.5)];
+    gameOverOverlay.position = CGPointMake(self.size.width * 0.5, self.size.height * 1.5);
+    gameOverOverlay.endPoint = CGPointMake(0, -self.size.height);
+    
+    [self addChild:gameOverOverlay];
+    [gameOverOverlay animate];
 }
 
 -(void)update:(NSTimeInterval)currentTime
 {
-    
+
 }
 
 @end

@@ -7,12 +7,13 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "FLPShadowLabelNode.h"
 
 @interface FLPButton : SKNode
 
 @property (nonatomic, copy) void (^buttonBlock)(void);
 @property (nonatomic, strong) SKSpriteNode *buttonSprite;
-@property (nonatomic, strong) SKLabelNode *buttonLabel;
+@property (nonatomic, strong) FLPShadowLabelNode *buttonLabel;
 @property (nonatomic) CGRect buttonRect;
 
 - (instancetype)initWithLabel:(SKLabelNode *)label andBlock:(void (^)(void))buttonBlock;

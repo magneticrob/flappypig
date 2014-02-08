@@ -9,6 +9,7 @@
 #import "FLPMainMenu.h"
 #import "FLPMyScene.h"
 #import "FLPButton.h"
+#import "FLPShadowLabelNode.h"
 
 @implementation FLPMainMenu
 
@@ -26,7 +27,7 @@
 
 - (void)addLabels
 {
-    SKLabelNode *mainHeader = [SKLabelNode labelNodeWithFontNamed:@"MineCrafter-2.0"];
+    FLPShadowLabelNode *mainHeader = [[FLPShadowLabelNode alloc] initWithSKLabelNode:[SKLabelNode labelNodeWithFontNamed:@"MineCrafter-2.0"]];
     mainHeader.text = @"FLAPPY PIG";
     mainHeader.fontSize = 72;
     mainHeader.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.7);
