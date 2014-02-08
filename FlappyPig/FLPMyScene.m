@@ -179,10 +179,9 @@ typedef enum {
 {
     FLPGameOverOverlay *gameOverOverlay = [[FLPGameOverOverlay alloc] initWithAnimationStyle:OverlayAnimationStyleSlideFromTop andSize:CGSizeMake(self.size.width * 0.3, self.size.height * 0.5)];
     gameOverOverlay.position = CGPointMake(self.size.width * 0.5, self.size.height * 1.5);
-    gameOverOverlay.endPoint = CGPointMake(0, -self.size.height);
     
     [self addChild:gameOverOverlay];
-    [gameOverOverlay animate];
+    [gameOverOverlay animateToEndPoint:CGPointMake(0, -self.size.height)];
 }
 
 -(void)update:(NSTimeInterval)currentTime

@@ -7,12 +7,13 @@
 //
 
 #import "FLPModalOverlay.h"
+#import "FLPButton.h"
 
 @interface FLPGameOverOverlay : FLPModalOverlay
 
 - (instancetype)initWithAnimationStyle:(OverlayAnimationStyle)animationStyle  andSize:(CGSize)size;
-- (void)animate;
+- (void)animateToEndPoint:(CGFloat)endPoint;
 
-@property (nonatomic) CGPoint endPoint;
+@property (nonatomic, strong) FLPButton *restartButton;
 
 @end

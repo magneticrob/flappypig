@@ -10,6 +10,11 @@
 
 @implementation FLPShadowLabelNode
 
++ (instancetype)shadowLabelWithSKLabel:(SKLabelNode *)label
+{
+    return [[self alloc] initWithSKLabelNode:label];
+}
+
 -(instancetype)initWithSKLabelNode:(SKLabelNode *)label
 {
     if (self = [super init]) {

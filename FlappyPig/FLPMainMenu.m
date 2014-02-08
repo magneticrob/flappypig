@@ -27,7 +27,7 @@
 
 - (void)addLabels
 {
-    FLPShadowLabelNode *mainHeader = [[FLPShadowLabelNode alloc] initWithSKLabelNode:[SKLabelNode labelNodeWithFontNamed:@"MineCrafter-2.0"]];
+    FLPShadowLabelNode *mainHeader = [FLPShadowLabelNode shadowLabelWithSKLabel:[SKLabelNode labelNodeWithFontNamed:@"MineCrafter-2.0"]];
     mainHeader.text = @"FLAPPY PIG";
     mainHeader.fontSize = 72;
     mainHeader.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.7);
@@ -40,12 +40,12 @@
     SKLabelNode *startLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraft"];
     startLabel.text = @"START GAME";
     
-    FLPButton *startButton = [[FLPButton alloc] initWithLabel:startLabel
-                                                     andBlock:^{
-                                                         SKScene *scene = [[FLPMyScene alloc] initWithSize:self.size];
-                                                         SKTransition *transition = [SKTransition fadeWithDuration:0.5];
-                                                         [self.view presentScene:scene transition:transition];
-                                                     }];
+    FLPButton *startButton = [FLPButton buttonWithLabel:startLabel
+                                               andBlock:^{
+                                                   SKScene *scene = [[FLPMyScene alloc] initWithSize:self.size];
+                                                   SKTransition *transition = [SKTransition fadeWithDuration:0.5];
+                                                   [self.view presentScene:scene transition:transition];
+                                               }];
     
     startButton.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.3);
     

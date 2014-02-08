@@ -16,6 +16,6 @@
 @property (nonatomic, strong) SKLabelNode *label;
 @property (nonatomic, strong) SKLabelNode *shadowLabel;
 
--(instancetype)initWithSKLabelNode:(SKLabelNode *)label;
++ (instancetype)shadowLabelWithSKLabel:(SKLabelNode *)label;
 
 @end

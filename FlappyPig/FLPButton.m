@@ -10,6 +10,11 @@
 
 @implementation FLPButton
 
++ (instancetype)buttonWithLabel:(SKLabelNode *)label andBlock:(void (^)(void))buttonBlock
+{
+    return [[self alloc] initWithLabel:label andBlock:buttonBlock];
+}
+
 - (instancetype)initWithLabel:(SKLabelNode *)label andBlock:(void (^)(void))buttonBlock
 {
     if (self = [super init]) {
@@ -21,7 +26,7 @@
         
         self.buttonRect = [self.buttonSprite frame];
         
-        self.buttonLabel = [[FLPShadowLabelNode alloc] initWithSKLabelNode:label];
+        self.buttonLabel = [FLPShadowLabelNode shadowLabelWithSKLabel:label];
         self.buttonLabel.position = CGPointMake(self.buttonLabel.position.x, -self.buttonRect.size.height * 0.3);
         
         self.userInteractionEnabled = YES;

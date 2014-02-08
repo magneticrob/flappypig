@@ -16,6 +16,6 @@
 @property (nonatomic, strong) FLPShadowLabelNode *buttonLabel;
 @property (nonatomic) CGRect buttonRect;
 
-- (instancetype)initWithLabel:(SKLabelNode *)label andBlock:(void (^)(void))buttonBlock;
++ (instancetype)buttonWithLabel:(SKLabelNode *)label andBlock:(void (^)(void))buttonBlock;
 
 @end

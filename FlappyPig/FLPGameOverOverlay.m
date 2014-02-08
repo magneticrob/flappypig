@@ -18,21 +18,23 @@
 {
     if(self = [super initWithSize:size])
     {
-        FLPShadowLabelNode *gameOverLabel = [[FLPShadowLabelNode alloc] initWithSKLabelNode:[SKLabelNode labelNodeWithFontNamed:@"MineCrafter-2.0"]];
+        FLPShadowLabelNode *gameOverLabel = [FLPShadowLabelNode shadowLabelWithSKLabel:[SKLabelNode labelNodeWithFontNamed:@"MineCrafter-2.0"]];
         gameOverLabel.text = @"GAME OVER";
         gameOverLabel.position = CGPointMake(0, self.overlay.size.height * 0.35);
         [self.overlayContainer addChild:gameOverLabel];
+        
+        self.restartButton = [FLPButton
     }
     
     return self;
 }
 
-- (void)animate
+- (void)animateToEndPoint:(CGFloat)endPoint
 {
     switch (_animationStyle) {
         case OverlayAnimationStyleSlideFromTop:
         {
-            SKAction *moveAction = [SKAction moveTo:self.endPoint duration:0.6];
+            SKAction *moveAction = [SKAction moveTo:endPoint duration:0.6];
             moveAction.timingMode = SKActionTimingEaseInEaseOut;
             [self.overlayContainer runAction:moveAction];
             break;
