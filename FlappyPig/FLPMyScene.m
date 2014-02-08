@@ -107,8 +107,8 @@ typedef enum {
     }
 
     float pipeWidth = 50;
-    float gapDistance = 200;
-    float floorHeight = 100;
+    float gapDistance = self.size.height * 0.2;
+    float floorHeight = self.size.height * 0.1;
     
     // generate the height of the bottom pipe. A random number based on a factor of the height of the screen, +50 so we don't get tiny pipes
     NSInteger randomBottomPipeHeight = (arc4random() % (int)self.size.height * 0.7) + 50 - floorHeight;
@@ -138,7 +138,7 @@ typedef enum {
     [self addChild:topPipe];
     
     // generate sensor to fill space
-    SKSpriteNode *sensorNode = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(pipeWidth, gapDistance)];
+    SKSpriteNode *sensorNode = [SKSpriteNode spriteNodeWithColor:[UIColor clearColor] size:CGSizeMake(pipeWidth, gapDistance)];
     sensorNode.position = CGPointMake(self.size.width + pipeWidth * 0.5, self.size.height - (topPipe.size.height + gapDistance * 0.5));
     sensorNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:sensorNode.size];
     sensorNode.physicsBody.dynamic = NO;
